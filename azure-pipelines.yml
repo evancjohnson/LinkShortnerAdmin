@@ -16,8 +16,8 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
+    cd AdminSite
     npm install -g @angular/cli
     npm install
-    cd AdminSite
     ng build --prod
   displayName: 'npm install and build'
