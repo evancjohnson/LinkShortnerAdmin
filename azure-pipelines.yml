@@ -16,8 +16,14 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
+    cd AdminSite
+    echo $PWD
     npm install -g @angular/cli
     npm install
-    cd AdminSite
     ng build --prod
   displayName: 'npm install and build'
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '/home/vsts/work/1/s/AdminSite/dist/AdminSite'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
